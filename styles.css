@@ -1,0 +1,58 @@
+/* Intentionally garish / bold styles to match "ugly" screenshot vibe */
+:root {
+  --accent1: #FD0030;
+  --accent2: #FFFF00;
+  --accent3: #00FFFF;
+  --bg: linear-gradient(135deg, #fff6, #ffd6);
+}
+
+* { box-sizing: border-box; font-family: 'Arial', sans-serif; }
+
+body {
+  margin: 0;
+  padding: 16px;
+  background: var(--bg);
+  color: #001;
+}
+
+header {
+  background: repeating-linear-gradient(45deg, #FFFDCC, #FFD8D8 10px);
+  padding: 12px;
+  border: 6px dashed #FD0030;
+  margin-bottom: 18px;
+}
+
+h1 { margin: 0; font-size: 28px; letter-spacing: 2px; color: #000; }
+.subtitle { margin: 6px 0 0; color: #800080; font-weight: bold; }
+
+main {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+
+.ugly-screenshot img {
+  display: block;
+  max-width: 100%;
+  border: 8px ridge yellow;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  margin-top: 10px;
+}
+
+.analysis {
+  background: #fffeea;
+  border-left: 16px solid #00FFFF;
+  padding: 12px;
+}
+
+.lint-demo {
+  padding: 12px;
+  border: 2px dotted #FD0030;
+  background: linear-gradient(90deg, #fff, #ffd);
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #444;
+}

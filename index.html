@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ugly UI Demo — Quality Gate Example</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Software Configuration Management — Demo Site</h1>
+    <p class="subtitle">Contains an intentionally ugly UI screenshot & a short remediation plan</p>
+  </header>
+
+  <main>
+    <section class="ugly-screenshot">
+      <h2>Screenshot of the ugliest UI (mock)</h2>
+      <!-- Embedded base64 SVG "screenshot" -->
+      <img alt="Ugly UI screenshot" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nODAwJyBoZWlnaHQ9JTMwMCcgdmVyc2lvbj0nMS4xJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPjxyZWN0IHdpZHRoPSc4MDAnIGhlaWdodD0nMzAwJyBmaWxsPScjRkQwMDMwJy8+PHJlY3QgeD0nMjAnIHk9JzIwJyB3aWR0aD0nNTAwJyBoZWlnaHQ9JTE1MCcgZmlsbD0nI0ZGRjA2MCcgc3Ryb2tlPSdyZWQnIHN0cm9rZS13aWR0aD0nMicvPjxjaXJjbGUgY3g9JzY0MCcgY3k9JzMwJyByPSc0MCcgZmlsbD0nI0ZGRjgwMScgc3Ryb2tlPSdibHVlJy8+PHJlY3QgeD0nNTAwJyB5PScxODAnIHdpZHRoPScyOTAnIGhlaWdodD0nODAnIGZpbGw9JyNGRkY2MDAnIHN0cm9rZT0nI2ZmMDAwJy8+PGxpbmUgeDE9JzIwJyB5MT0nMTgwJyB4Mj0nNTAwJyB5Mj0nMjYwJyBzdHJva2U9J25lcm9uJyBzdHJva2Utd2lkdGg9JzEnLz48dGV4dCB4PScyOCcgeT0nNDAnIGZvbnQtZmFtaWx5PSdBcmlhbCcsIHNhbnMtc2VyaWY7JyBmb250LXNpemU9JzMyJyBmaWxsPScjMDAwMCc+VUlEIGNvbnRyb2w8L3RleHQ+PHRleHQgeD0nMjQwJyB5PSc4MCcgZm9udC1mYW1pbHk9J0FyaWFsJyBmb250LXNpemU9JzE2JyBmaWxsPScjRkZGRjAwJz5IZXJvcyBhcmUgeW91PyA8L3RleHQ+PHRleHQgeD0nMjQwJyB5PScxMDAnIGZvbnQtZmFtaWx5PSdBcmlhbCcgZm9udC1zaXplPScxNCcgZmlsbD0nI0QwMDAwMCc+QmF6aW5nIGluZm8gaGVyZSE8L3RleHQ+PHRleHQgeD0nNTQwJyB5PSczMCcgc3R5bGU9J2ZvbnQtd2VpZ2h0OmJvbGQ7ZmlsbDojRkZGRkZGOyc+Q29u0O9yZGVkPC90ZXh0Pjwvc3ZnPg==" />
+      <figcaption>
+        This is a deliberately gaudy mock "screenshot" embedded directly in the page (inline base64 SVG).
+      </figcaption>
+    </section>
+
+    <section class="analysis">
+      <h2>What I would do to improve this UI</h2>
+      <ol>
+        <li><strong>Fix visual hierarchy:</strong> establish a clear typographic scale, consistent spacing, and remove competing focal points.</li>
+        <li><strong>Color system:</strong> reduce palette to 3–4 accessible colors; ensure contrast ratio >= 4.5:1 for body text.</li>
+        <li><strong>Layout & spacing:</strong> use a responsive grid, increase padding and line-height to reduce visual noise.</li>
+        <li><strong>Consistency & affordances:</strong> consistent button styles, clear icons, and accessible control sizing.</li>
+        <li><strong>Accessibility:</strong> semantic HTML, ARIA where needed, keyboard navigation, and automated/audit testing (axe, Lighthouse).</li>
+        <li><strong>Progressive enhancement:</strong> ensure it works without JS, then add progressive interactions.</li>
+      </ol>
+    </section>
+
+    <section class="lint-demo">
+      <h2>Lint demo</h2>
+      <p>There is an intentional JS lint error in <code>script.js</code> (missing semicolon). That will fail ESLint and block deployment. Fix it to allow the workflow to continue.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Generated for SCM / CI-CD demo.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

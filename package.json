@@ -1,0 +1,12 @@
+{
+  "name": "ugly-ui-demo-site",
+  "version": "1.0.0",
+  "description": "A static site demonstrating an intentionally ugly UI, with eslint gating GitHub Pages deployment.",
+  "scripts": {
+    "lint": "eslint . --ext .js,.html",
+    "start": "echo \"This is a static site; serve with any static host.\""
+  },
+  "devDependencies": {
+    "eslint": "^8.48.0"
+  }
+}
