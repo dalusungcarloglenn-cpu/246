@@ -1,4 +1,4 @@
-name: Lint, Test, and Deploy to GitHub Pages
+name: Build, Report, and Deploy to GitHub Pages
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,22 +14,21 @@ jobs:
         with:
           node-version: 18
       - run: npm install
+      # You can include your linting and testing inside build if you prefer
       - run: npm run lint
-
-  test:
-    runs-on: ubuntu-latest
-    needs: lint
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - run: npm install
       - run: npm test
+      - run: npm run build
+
+  report-build-status:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Report Build Success
+        run: echo "✅ Build completed successfully!"
 
   deploy:
     runs-on: ubuntu-latest
-    needs: [lint, test]
+    needs: [build, report-build-status]
     if: ${{ success() }}
     steps:
       - uses: actions/checkout@v4
@@ -42,6 +41,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./
+          path: ./dist  # 👈 change this if your build output folder is different
       - name: Deploy
         uses: actions/deploy-pages@v1
