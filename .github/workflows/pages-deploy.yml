@@ -34,7 +34,7 @@ jobs:
           if [ ! -d "./dist" ]; then
             echo "No build folder found. Using repository root as site content."
             mkdir dist
-            cp -r * dist/
+            find . -mindepth 1 -maxdepth 1 ! -name dist ! -name .git ! -name node_modules -exec cp -r {} dist/ \;
           fi
 
       - name: Upload Build Artifact
@@ -76,7 +76,7 @@ jobs:
           if [ ! -d "./dist" ]; then
             echo "No dist folder found after artifact download. Creating fallback directory."
             mkdir dist
-            cp -r * dist/
+            find . -mindepth 1 -maxdepth 1 ! -name dist ! -name .git ! -name node_modules -exec cp -r {} dist/ \;
           fi
 
       - name: Configure Pages
