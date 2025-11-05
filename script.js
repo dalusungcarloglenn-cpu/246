@@ -1,6 +1,7 @@
 // ✨ Eye-catching bubbles function — runs when page loads
 function createFloatingBubbles() {
   const container = document.createElement("div");
+  container.className = "bubbles-container"; // ✅ add class for testing
   container.style.position = "fixed";
   container.style.top = 0;
   container.style.left = 0;
@@ -8,10 +9,10 @@ function createFloatingBubbles() {
   container.style.height = "100%";
   container.style.pointerEvents = "none";
   document.body.appendChild(container);
-<<<<<<< HEAD
 
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 50; i++) { // ✅ use 50 for test consistency
     const bubble = document.createElement("div");
+    bubble.className = "bubble"; // ✅ add class for testing
     bubble.style.position = "absolute";
     bubble.style.width = `${10 + Math.random() * 30}px`;
     bubble.style.height = bubble.style.width;
@@ -22,15 +23,17 @@ function createFloatingBubbles() {
     bubble.style.opacity = 0.8;
     container.appendChild(bubble);
 
-    // Animate upward
+    // Animate upward (mocked in Jest)
     const duration = 3000 + Math.random() * 2000;
-    bubble.animate(
-      [
-        { transform: "translateY(0)", opacity: 0.8 },
-        { transform: "translateY(-120vh)", opacity: 0 }
-      ],
-      { duration, easing: "ease-out" }
-    );
+    if (bubble.animate) {
+      bubble.animate(
+        [
+          { transform: "translateY(0)", opacity: 0.8 },
+          { transform: "translateY(-120vh)", opacity: 0 }
+        ],
+        { duration, easing: "ease-out" }
+      );
+    }
   }
 
   // Remove after animation
@@ -38,47 +41,11 @@ function createFloatingBubbles() {
 }
 
 // Run on load
-window.addEventListener("load", () => {
-  createFloatingBubbles();
-});
-
-// Export for Jest tests
-module.exports = { createFloatingBubbles };
-=======
-
-  for (let i = 0; i < 15; i++) {
-    const bubble = document.createElement("div");
-    bubble.style.position = "absolute";
-    bubble.style.width = `${10 + Math.random() * 30}px`;
-    bubble.style.height = bubble.style.width;
-    bubble.style.borderRadius = "50%";
-    bubble.style.background = `hsl(${Math.random() * 360}, 80%, 60%)`;
-    bubble.style.left = `${Math.random() * 100}%`;
-    bubble.style.top = "100%";
-    bubble.style.opacity = 0.8;
-    container.appendChild(bubble);
-
-    // Animate upward
-    const duration = 3000 + Math.random() * 2000;
-    bubble.animate(
-      [
-        { transform: "translateY(0)", opacity: 0.8 },
-        { transform: "translateY(-120vh)", opacity: 0 }
-      ],
-      { duration, easing: "ease-out" }
-    );
-  }
-
-  // Remove after animation
-  setTimeout(() => container.remove(), 5000);
+if (typeof window !== "undefined") {
+  window.addEventListener("load", createFloatingBubbles);
 }
 
-// Run on load
-window.addEventListener("load", () => {
-  createFloatingBubbles();
-});
-
 // Export for Jest tests
-module.exports = { createFloatingBubbles };
-
->>>>>>> d68889954c8bdcc530bc8827a46492531a0028ea
+if (typeof module !== "undefined") {
+  module.exports = { createFloatingBubbles };
+}
