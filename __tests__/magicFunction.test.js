@@ -20,10 +20,9 @@ test("bubbles count should be 50", () => {
   expect(bubbles.length).toBe(50);
 });
 
-// 💥 Intentional failing test
-test("bubbles should NOT exist (intentional fail)", () => {
-  document.body.innerHTML = "";
-  createFloatingBubbles();
-  const bubbles = document.querySelectorAll(".bubble");
-  expect(bubbles.length).toBe(0); // ❌ Expected 0, got 50
-});
+// test("bubbles should NOT exist (intentional fail)", () => {
+//   document.body.innerHTML = "";
+//   createFloatingBubbles();
+//   const bubbles = document.querySelectorAll(".bubble");
+//   expect(bubbles.length).toBe(0); 
+// });
